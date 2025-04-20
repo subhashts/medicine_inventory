@@ -1,11 +1,13 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2>Buy Stock</h2>
-<form method="POST">
-    <input type="text" name="name" placeholder="Medicine Name" required>
-    <input type="number" name="quantity" placeholder="Quantity" required>
-    <input type="date" name="expiry" required>
-    <input type="number" step="0.01" name="price" placeholder="Price per Unit" required>
-    <button type="submit">Buy</button>
-</form>
+<div class="form-container">
+    <h2 class="form-title">🛒 Buy Stock</h2>
+    <form method="POST" class="stock-form">
+        <input type="text" name="name" placeholder="💊 Medicine Name" required class="form-input">
+        <input type="number" name="quantity" placeholder="📦 Quantity" required class="form-input">
+        <input type="date" name="expiry" required class="form-input">
+        <input type="number" step="0.01" name="price" placeholder="💰 Price per Unit" required class="form-input">
+        <button type="submit" class="form-button">Buy</button>
+    </form>
+</div>
 {% endblock %}

@@ -1,24 +1,39 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2>All Transactions</h2>
-<table>
-    <tr>
-        <th>Medicine ID</th>
-        <th>Worker</th>
-        <th>Quantity</th>
-        <th>Type</th>
-        <th>Price</th>
-        <th>Timestamp</th>
-    </tr>
-    {% for t in transactions %}
-    <tr>
-        <td>{{ t.medicine_id }}</td>
-        <td>{{ t.worker_id or 'Admin' }}</td>
-        <td>{{ t.quantity }}</td>
-        <td>{{ t.type }}</td>
-        <td>${{ '%.2f' % t.price }}</td>
-        <td>{{ t.timestamp }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="page-section">
+    <h2 class="section-title">📋 All Transactions</h2>
+
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>💊 Medicine</th>
+                    <th>👤 Worker</th>
+                    <th>📦 Quantity</th>
+                    <th>🔄 Type</th>
+                    <th>💰 Price</th>
+                    <th>⏰ Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in transactions %}
+                <tr>
+                    <td>{{ t.medicine.name }}</td>
+                    <td>{{ t.worker.name if t.worker else 'Admin' }}</td>
+                    <td>{{ t.quantity }}</td>
+                    <td>
+                        <span class="badge {{ 'buy' if t.type == 'buy' else 'sell' }}">
+                            {{ t.type|capitalize }}
+                        </span>
+                    </td>
+                    <td>₹{{ '%.2f' % t.price }}</td>
+                    <td>{{ t.timestamp }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="6" class="no-data">No transactions found.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

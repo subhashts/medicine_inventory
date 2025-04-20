@@ -31,12 +31,15 @@ class Medicine(db.Model):
     quantity = db.Column(db.Integer)
     expiry_date = db.Column(db.Date)
     price = db.Column(db.Numeric(10, 2), default=0)
-
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    medicine_id = db.Column(db.Integer, db.ForeignKey('medicine.id'))
-    worker_id = db.Column(db.String(10), db.ForeignKey('worker.id'), nullable=True)
+    medicine_id = db.Column(db.Integer, db.ForeignKey('medicine.id', ondelete='CASCADE'))
+    worker_id = db.Column(db.String(10), db.ForeignKey('worker.id', ondelete='CASCADE'), nullable=True)
     quantity = db.Column(db.Integer)
     type = db.Column(db.Enum('buy', 'sell'))
     price = db.Column(db.Numeric(10, 2), default=0)
     timestamp = db.Column(db.DateTime, server_default=db.func.now())
+
+    # ✅ relationships
+    medicine = db.relationship('Medicine', backref=db.backref('transactions', cascade='all, delete'))
+    worker = db.relationship('Worker', backref='transactions', foreign_keys=[worker_id])

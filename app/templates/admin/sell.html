@@ -1,13 +1,15 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2>Sell Stock</h2>
-<form method="POST">
-    <select name="medicine_id">
-        {% for m in medicines %}
-            <option value="{{ m.id }}">{{ m.name }}</option>
-        {% endfor %}
-    </select>
-    <input type="number" name="quantity" placeholder="Quantity" required>
-    <button type="submit">Sell</button>
-</form>
+<div class="form-container">
+    <h2 class="form-title">💸 Sell Stock</h2>
+    <form method="POST" class="stock-form">
+        <select name="medicine_id" class="form-input">
+            {% for m in medicines %}
+                <option value="{{ m.id }}">{{ m.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="quantity" placeholder="📦 Quantity" required class="form-input">
+        <button type="submit" class="form-button">Sell</button>
+    </form>
+</div>
 {% endblock %}

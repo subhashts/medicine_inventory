@@ -1,95 +1,272 @@
+/* Reset & Base */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #f1f4f9, #dff1ff);
     margin: 0;
-    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fa;
+    color: #333;
 }
 
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+a:hover {
+    color: #1abc9c;
+}
+
+/* Navbar */
 nav {
-    background: #004080;
-    color: white;
-    padding: 10px;
-    text-align: center;
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
-    margin: 0 15px;
-    text-decoration: none;
     font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s;
 }
 
-main {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-    background: #ffffff;
-    border-radius: 8px;
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-h2, h3 {
-    color: #004080;
+/* Home Page */
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
 }
 
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background: #004080;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-table {
-    width: 100%;
+.container {
     background: white;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table th, table td {
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-.flash {
-    background: #ffdddd;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-left: 4px solid red;
-    border-radius: 4px;
-    list-style: none;
-}
-
-.home .container {
-    text-align: center;
-    padding-top: 100px;
+.container h1 {
+    margin-bottom: 2rem;
+    color: #34495e;
 }
 
 .btn {
     display: inline-block;
-    margin: 10px;
-    padding: 15px 25px;
-    background: #004080;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    background: #3498db;
     color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.flash {
-    background-color: #ffdddd;
-    color: red;
-    padding: 12px;
-    border: 1px solid red;
+.btn:hover {
+    background: #2c80b4;
+}
+
+/* Forms */
+.form-container {
+    background: white;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    margin-bottom: 1.5rem;
+    color: #34495e;
+}
+
+.stock-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-input, select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-button:hover {
+    background: #219150;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Dashboard, Transactions, Inventory, Worker List */
+.dashboard-container,
+.transactions-container,
+.inventory-container,
+.worker-list-container {
+    padding: 2rem;
+}
+
+.section-title,
+.transactions-title,
+.inventory-title {
+    color: #2c3e50;
+    margin-top: 2rem;
+}
+
+.dashboard-list,
+.worker-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.dashboard-item,
+.worker-item {
+    background: #ecf0f1;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
     border-radius: 6px;
-    list-style-type: none;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-item.empty {
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+/* Delete Link */
+.delete-link,
+a[href*="delete"] {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.delete-link:hover,
+a[href*="delete"]:hover {
+    color: #c0392b;
+}
+
+/* Flash Messages */
+.flash {
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 600px;
+    list-style: none;
+    background-color: #f1c40f;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Welcome Message */
+.welcome-msg {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 1rem;
+    background: #ecf0f1;
+    padding: 1rem;
+    border-radius: 8px;
+}
+/* Transaction Type Badges */
+.type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+}
+
+.type-badge.buy {
+    background-color: #2ecc71; /* green */
+}
+
+.type-badge.sell {
+    background-color: #e67e22; /* orange */
+}
+
+/* Transaction Table Enhancements */
+.transactions-container h2,
+.transactions-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+table td, table th {
+    vertical-align: middle;
+}
+
+table tr:hover {
+    background-color: #eef6fa;
+    transition: background-color 0.3s;
+}
+
+/* No Data Styling */
+td.dashboard-item.empty {
+    text-align: center;
+    color: #7f8c8d;
+    font-style: italic;
+    background-color: #fcfcfc;
+    border-bottom: none;
+}
+
+/* Worker name column wrap fix */
+table td:nth-child(2) {
+    white-space: nowrap;
 }

@@ -1,18 +1,23 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2>Add Worker</h2>
-<form method="POST">
-    <input type="text" name="name" placeholder="Worker Name" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Add Worker</button>
-</form>
+<div class="form-container">
+    <h2 class="form-title">👷 Add Worker</h2>
+    <form method="POST" class="stock-form">
+        <input type="text" name="name" placeholder="👤 Worker Name" required class="form-input">
+        <input type="password" name="password" placeholder="🔒 Password" required class="form-input">
+        <button type="submit" class="form-button">Add Worker</button>
+    </form>
+</div>
 
-<h3>Existing Workers</h3>
-<ul>
-    {% for w in workers %}
-        <li>{{ w.id }} - {{ w.name }}
-            <a href="{{ url_for('admin.delete_worker', worker_id=w.id) }}">Delete</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="worker-list-container">
+    <h3 class="section-title">👥 Existing Workers</h3>
+    <ul class="worker-list">
+        {% for w in workers %}
+            <li class="worker-item">
+                <span>{{ w.id }} - {{ w.name }}</span>
+                <a href="{{ url_for('admin.delete_worker', worker_id=w.id) }}" class="delete-link">🗑️ Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

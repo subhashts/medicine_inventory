@@ -6,37 +6,42 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav>
-        {% if current_user.is_authenticated %}
-            {% if current_user.__class__.__name__ == 'Admin' %}
-                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
-                <a href="{{ url_for('admin.inventory') }}">Inventory</a>
-                <a href="{{ url_for('admin.buy') }}">Buy</a>
-                <a href="{{ url_for('admin.sell') }}">Sell</a>
-                <a href="{{ url_for('admin.transactions') }}">Transactions</a>
-                <a href="{{ url_for('admin.workers') }}">Workers</a>
-            {% else %}
-                <a href="{{ url_for('worker.dashboard') }}">Dashboard</a>
-                <a href="{{ url_for('worker.inventory') }}">Inventory</a>
-                <a href="{{ url_for('worker.sell') }}">Sell</a>
-                <a href="{{ url_for('worker.transactions') }}">Transactions</a>
-            {% endif %}
-            <a href="{{ url_for('auth.logout') }}">Logout</a>
-        {% else %}
-            <a href="{{ url_for('auth.home') }}">Home</a>
-        {% endif %}
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">💊 MedManager</div>
+            <div class="nav-links">
+                {% if current_user.is_authenticated %}
+                    {% if current_user.__class__.__name__ == 'Admin' %}
+                        <a href="{{ url_for('admin.dashboard') }}" class="nav-link">Dashboard</a>
+                        <a href="{{ url_for('admin.inventory') }}" class="nav-link">Inventory</a>
+                        <a href="{{ url_for('admin.buy') }}" class="nav-link">Buy</a>
+                        <a href="{{ url_for('admin.sell') }}" class="nav-link">Sell</a>
+                        <a href="{{ url_for('admin.transactions') }}" class="nav-link">Transactions</a>
+                        <a href="{{ url_for('admin.workers') }}" class="nav-link">Workers</a>
+                    {% else %}
+                        <a href="{{ url_for('worker.dashboard') }}" class="nav-link">Dashboard</a>
+                        <a href="{{ url_for('worker.inventory') }}" class="nav-link">Inventory</a>
+                        <a href="{{ url_for('worker.sell') }}" class="nav-link">Sell</a>
+                        <a href="{{ url_for('worker.transactions') }}" class="nav-link">Transactions</a>
+                    {% endif %}
+                    <a href="{{ url_for('auth.logout') }}" class="nav-link logout">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('auth.home') }}" class="nav-link">Home</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
 
-    <main>
+    <main class="main-content">
         <!-- ✅ Flash messages -->
         {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul class="flash">
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+            {% if messages %}
+                <ul class="flash">
+                    {% for message in messages %}
+                        <li class="flash-message">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         {% endwith %}
 
         <!-- ✅ Page content -->

@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2>Worker Dashboard</h2>
-<p>Welcome {{ current_user.name }}!</p>
+<div class="dashboard-container">
+    <h2 class="form-title">👷 Worker Dashboard</h2>
+    <p class="welcome-msg">Welcome, {{ current_user.name }}!</p>
+</div>
 {% endblock %}

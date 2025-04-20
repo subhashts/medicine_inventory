@@ -111,13 +111,14 @@ def delete_worker(worker_id):
         db.session.delete(worker)
         db.session.commit()
     return redirect(url_for('admin.workers'))
-
 @admin_bp.route('/delete_medicine/<int:medicine_id>')
 @login_required
 def delete_medicine(medicine_id):
     if not is_admin(): return redirect('/')
     med = Medicine.query.get(medicine_id)
     if med:
+        # Delete associated transactions first
+        Transaction.query.filter_by(medicine_id=med.id).delete()
         db.session.delete(med)
         db.session.commit()
     return redirect(url_for('admin.inventory'))
