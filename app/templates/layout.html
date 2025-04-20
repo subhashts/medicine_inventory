@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        {% if current_user.is_authenticated %}
+            {% if current_user.__class__.__name__ == 'Admin' %}
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.inventory') }}">Inventory</a>
+                <a href="{{ url_for('admin.buy') }}">Buy</a>
+                <a href="{{ url_for('admin.sell') }}">Sell</a>
+                <a href="{{ url_for('admin.transactions') }}">Transactions</a>
+                <a href="{{ url_for('admin.workers') }}">Workers</a>
+            {% else %}
+                <a href="{{ url_for('worker.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('worker.inventory') }}">Inventory</a>
+                <a href="{{ url_for('worker.sell') }}">Sell</a>
+                <a href="{{ url_for('worker.transactions') }}">Transactions</a>
+            {% endif %}
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('auth.home') }}">Home</a>
+        {% endif %}
+    </nav>
+
+    <main>
+        <!-- ✅ Flash messages -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flash">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <!-- ✅ Page content -->
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<h3>🔻 Low Stock Medicines</h3>
+<ul>
+    {% for m in low_stock %}
+        <li>{{ m.name }} ({{ m.quantity }})</li>
+    {% else %}
+        <li>No low stock items.</li>
+    {% endfor %}
+</ul>
+
+<h3>⏰ Expiring Within 30 Days</h3>
+<ul>
+    {% for m in expiring %}
+        <li>{{ m.name }} (Exp: {{ m.expiry_date }})</li>
+    {% else %}
+        <li>No upcoming expirations.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

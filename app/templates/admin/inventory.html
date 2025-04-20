@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Inventory</h2>
+<table>
+    <tr><th>Name</th><th>Quantity</th><th>Expiry</th><th>Price</th><th>Action</th></tr>
+    {% for m in medicines %}
+    <tr>
+        <td>{{ m.name }}</td>
+        <td>{{ m.quantity }}</td>
+        <td>{{ m.expiry_date }}</td>
+        <td>${{ '%.2f' % m.price }}</td>
+        <td><a href="{{ url_for('admin.delete_medicine', medicine_id=m.id) }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="home">
+    <div class="container">
+        <h1>🏥 Welcome to Medicine Management System</h1>
+        <a href="{{ url_for('auth.admin_signup') }}" class="btn">Sign Up as Admin</a>
+        <a href="{{ url_for('auth.login') }}" class="btn">Login (Admin/Worker)</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Inventory</h2>
+<table>
+    <tr><th>Name</th><th>Quantity</th><th>Expiry Date</th></tr>
+    {% for m in medicines %}
+    <tr>
+        <td>{{ m.name }}</td>
+        <td>{{ m.quantity }}</td>
+        <td>{{ m.expiry_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

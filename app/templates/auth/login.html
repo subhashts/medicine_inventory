@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="form-container">
+    <h2>Login (Admin / Worker)</h2>
+    <form method="POST">
+        <input type="text" name="identity" placeholder="Email or Worker ID" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}

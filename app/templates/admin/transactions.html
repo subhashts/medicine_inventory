@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>All Transactions</h2>
+<table>
+    <tr>
+        <th>Medicine ID</th>
+        <th>Worker</th>
+        <th>Quantity</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Timestamp</th>
+    </tr>
+    {% for t in transactions %}
+    <tr>
+        <td>{{ t.medicine_id }}</td>
+        <td>{{ t.worker_id or 'Admin' }}</td>
+        <td>{{ t.quantity }}</td>
+        <td>{{ t.type }}</td>
+        <td>${{ '%.2f' % t.price }}</td>
+        <td>{{ t.timestamp }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

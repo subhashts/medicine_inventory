@@ -1,0 +1,95 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f1f4f9, #dff1ff);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: #004080;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+h2, h3 {
+    color: #004080;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #004080;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.flash {
+    background: #ffdddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid red;
+    border-radius: 4px;
+    list-style: none;
+}
+
+.home .container {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 25px;
+    background: #004080;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.flash {
+    background-color: #ffdddd;
+    color: red;
+    padding: 12px;
+    border: 1px solid red;
+    border-radius: 6px;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
