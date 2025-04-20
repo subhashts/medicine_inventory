@@ -1,0 +1,4 @@
+step 1 : git clone my url
+step 2 : open config.py file and change the user name and password 
+step 3: pip install requirements.txt
+step 4 : python run.py
